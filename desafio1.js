@@ -6,50 +6,32 @@ console.log(empresa)
 
 let canProductos = parseInt(prompt ("Ingrese la cantidad de productos que tiene para la venta"))
 
-if (canProductos = String) {
-    alert ("Usted ha ingresado un valor que no es numérico")
-} else {
-    prompt ("Ingrese la cantidad de productos que tiene para la venta")
+let ganancia = parseFloat ( prompt("Ingrese el porcentaje de ganancia pretendida"))
+let globalprofit = 0
+
+const iva = 21
+
+for (let i = 0; i < canProductos; i++){
+    console.log(i)
+    let costo = parseFloat(prompt ("Ingrese el valor de costo del producto Nro  "+i))
+    let afip = costo*iva/100
+    let precioFinal = costo*(1+ganancia/100)
+    console.log(precioFinal+afip)
+    globalprofit = globalprofit+precioFinal+afip
+    console.log (globalprofit)
 }
 
-let costo = parseFloat(prompt("Ingrese el valor numerico del costo de cada producto"))
+let globalcost = (globalprofit)/((1+ganancia/100)+(iva/100))
+console.log(globalcost)
 
+let netaprofit = globalprofit - (globalcost*iva/100)
+console.log(netaprofit)
 
+alert ("Su empresa "+empresa+" tendra un capital activo por la suma de pesos "+globalprofit)
+alert ("La empresa "+empresa+" tiene un total de ganancias netas por la suma de pesos "+(netaprofit-globalcost))
 
-
-
-//ejercicio importado
-let diaSemana = prompt("¿Qué día es hoy?");
-
-switch (diaSemana) {
-	case "lunes":
-		alert("Hoy es lunes.");
-		break;
-
-	case "martes":
-		alert("Hoy es martes.");
-		break;
-
-	case "miércoles":
-		alert("Hoy es miércoles.");
-		break;
-
-	case "jueves":
-		alert("Hoy es jueves.");
-		break;
-
-	case "viernes":
-		alert("Hoy es viernes.");
-		break;
-
-	case "sábado":
-		alert("Hoy es sábado.");
-		break;
-
-	case "domingo":
-		alert("Hoy es domingo.");
-		break;
-
-	default:
-		alert("Escribe el día de la semana en minúsculas.");
-}
+/* 
+while (canProductos != number) {
+    alert ("Usted no ha ingresado un valor numérico")
+    canProductos = prompt ("Ingrese nuevamente la cantidad de productos que tiene a la venta")
+} */
